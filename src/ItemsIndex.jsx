@@ -8,6 +8,7 @@ export function ItemsIndex(props) {
           <img src={item.image_url} alt={item.name} />
           <p>Description: {item.description}</p>
           <p>Category: {item.category}</p>
+          <button onClick={() => props.onShowItem(item)}>More info</button>
         </div>
       ))}
     </div>

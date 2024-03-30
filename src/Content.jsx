@@ -4,6 +4,9 @@ import { ItemsIndex } from "./ItemsIndex";
 import { ItemsNew } from "./ItemsNew";
 import { ItemsShow } from "./ItemsShow";
 import { Modal } from "./Modal";
+import { Signup } from "./Signup";
+import { Login } from "./Login";
+import { LogoutLink } from "./LogoutLink";
 
 export function Content() {
   const [items, setItems] = useState([]);
@@ -79,6 +82,9 @@ export function Content() {
 
   return (
     <div>
+      <Signup />
+      <Login />
+      <LogoutLink />
       <ItemsNew onCreateItem={handleCreateItem} />
       <ItemsIndex items={items} onShowItem={handleShowItem} />
       <Modal show={isItemsShowVisible} onClose={handleClose}>

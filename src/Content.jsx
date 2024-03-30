@@ -32,6 +32,44 @@ export function Content() {
     setCurrentItem(item);
   };
 
+  const handleUpdateItem = (id, params, successCallback) => {
+    console.log("handleUpdateItem", params);
+    axios.patch(`http://localhost:3000/items/${id}.json`, params).then((response) => {
+      setItems(
+        items.map((item) => {
+          if (item.id === response.data.id) {
+            return response.data;
+          } else {
+            return item;
+          }
+        })
+      );
+      successCallback();
+      handleClose();
+    });
+  };
+
+  const handleDestroyItem = (item) => {
+    console.log("handleDestroyItem - Item:", item); // Log item object for debugging
+    console.log("Type of id:", typeof item.id); // Log type of id property for debugging
+
+    if (item && item.id) {
+      axios
+        .delete(`http://localhost:3000/items/${item.id}.json`)
+        .then((response) => {
+          console.log("Delete response:", response); // Log response for debugging
+          setItems(items.filter((p) => p.id !== item.id));
+          handleClose();
+        })
+        .catch((error) => {
+          console.error("Delete error:", error); // Log error for debugging
+          // Handle error
+        });
+    } else {
+      console.error("Invalid item:", item); // Log invalid item for debugging
+    }
+  };
+
   const handleClose = () => {
     console.log("handleClose");
     setIsItemsShowVisible(false);
@@ -44,7 +82,7 @@ export function Content() {
       <ItemsNew onCreateItem={handleCreateItem} />
       <ItemsIndex items={items} onShowItem={handleShowItem} />
       <Modal show={isItemsShowVisible} onClose={handleClose}>
-        <ItemsShow item={currentItem} />
+        <ItemsShow item={currentItem} onUpdateItem={handleUpdateItem} onDestroyItem={handleDestroyItem} />
       </Modal>
     </div>
   );

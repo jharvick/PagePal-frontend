@@ -3,12 +3,12 @@ export function ItemsIndex(props) {
     <div>
       <h1>All items</h1>
       {props.items.map((item) => (
-        <div key={item.name}>
+        <div key={item.id}>
           <h2>Title: {item.name}</h2>
           <img src={item.image_url} alt={item.name} />
-          <p>Description: {item.description}</p>
-          <p>Category: {item.category}</p>
-          <button onClick={() => props.onShowItem(item)}>More info</button>
+          <div>
+            <button onClick={() => props.onShowItem(item)}>More info</button>
+          </div>
         </div>
       ))}
     </div>

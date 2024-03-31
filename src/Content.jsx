@@ -7,11 +7,14 @@ import { Modal } from "./Modal";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
+import { FavoritesIndex } from "./FavoritesIndex";
+import { FavoritesNew } from "./FavoritesNew";
 
 export function Content() {
   const [items, setItems] = useState([]);
   const [isItemsShowVisible, setIsItemsShowVisible] = useState(false);
   const [currentItem, setCurrentItem] = useState({});
+  const [favorites, setFavorites] = useState([]);
 
   const handleIndexItems = () => {
     console.log("handleIndexItems");
@@ -21,10 +24,29 @@ export function Content() {
     });
   };
 
+  const handleIndexFavorites = () => {
+    console.log("handleIndexFavorites");
+    axios.get("http://localhost:3000/favorites.json").then((response) => {
+      console.log(response.data);
+      setFavorites(response.data);
+    });
+  };
+
   const handleCreateItem = (params, successCallback) => {
     console.log("handleCreateItem", params);
     axios.post("http://localhost:3000/items.json", params).then((response) => {
       setItems([...items, response.data]);
+      successCallback();
+    });
+  };
+
+  const handleCreateFavorite = (params, successCallback) => {
+    console.log("handleCreateFavorite", params);
+    const authToken = localStorage.getItem("authToken"); // Get the authentication token from local storage
+    const headers = { Authorization: `Bearer ${authToken}` }; // Include the token in the request headers
+
+    axios.post("http://localhost:3000/favorites.json", params, { headers }).then((response) => {
+      setFavorites([...favorites, response.data]);
       successCallback();
     });
   };
@@ -79,6 +101,7 @@ export function Content() {
   };
 
   useEffect(handleIndexItems, []);
+  useEffect(handleIndexFavorites, []);
 
   return (
     <div>
@@ -86,6 +109,8 @@ export function Content() {
       <Login />
       <LogoutLink />
       <ItemsNew onCreateItem={handleCreateItem} />
+      <FavoritesIndex favorites={favorites} />
+      <FavoritesNew onCreateFavorite={handleCreateFavorite} />
       <ItemsIndex items={items} onShowItem={handleShowItem} />
       <Modal show={isItemsShowVisible} onClose={handleClose}>
         <ItemsShow item={currentItem} onUpdateItem={handleUpdateItem} onDestroyItem={handleDestroyItem} />

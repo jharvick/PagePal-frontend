@@ -1,11 +1,18 @@
-export function FavoritesIndex(props) {
+import React from "react";
+
+export function FavoritesIndex({ favorites }) {
+  if (!favorites || favorites.length === 0) {
+    return <div>No favorites to display.</div>;
+  }
+
   return (
     <div>
-      <h1>All favorites</h1>
-      <img src="https://www.fg-a.com/under-construction/under-construction-night.gif" width="500px" />
-      {props.favorites.map((favorite) => (
-        <div key={favorite.id}></div>
-      ))}
+      <h1>Favorites</h1>
+      <ul>
+        {favorites.map((favorite) => (
+          <li key={favorite.id}>{favorite.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }

@@ -1,3 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+
 html {
   scroll-behavior: smooth;
+}
+
+#root {
+  font-family: 'Alkatra', cursive;
+  /* background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/darkness.png"); */
+  min-height: 100vh;
+}
+
+.card img {
+  height: 450px;
+  object-fit: cover;
+}
+
+.navbar-brand {
+  font-family: 'Alkatra', cursive;
+  font-size: 3em !important;
+}
+
+h1 {
+  color:#000
+}
+
+h2 {
+  color:#000
+}
+
+p {
+  color:#000
+}
+
+div {
+  color:#000
+}
+
+header {
+  background-color: #333; /* Background color */
+  color: #fff; /* Text color */
+  padding: 20px; /* Padding around content */
+  text-align: left; /* Center-align text */
+}
+
+/* Styling the h1 element within the header */
+header h1 {
+  font-size: 24px; /* Font size */
+  margin: 0; /* Remove default margin */
+  text-align: left;
+}
+
+/* Styling the navigation menu within the header */
+header nav {
+  margin-top: 10px; /* Margin above navigation */
+}
+
+/* Styling the links within the navigation menu */
+header nav a {
+  color: #fff; /* Text color */
+  text-decoration: none; /* Remove underline */
+  padding: 5px 10px; /* Padding around each link */
+}
+
+/* Styling for hover effect on links */
+header nav a:hover {
+  background-color: #555; /* Background color on hover */
+}
+
+/* CSS for navbar */
+.navbar-collapse {
+  display: flex; /* Use flexbox layout */
+  justify-content: space-between; /* Distribute items evenly along the main axis */
+  align-items: center; /* Center items vertically */
+}
+
+/* CSS for navbar links */
+.navbar-nav {
+  display: flex; /* Use flexbox layout for the navbar items */
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+}
+
+.nav-item {
+  margin-right: 10px; /* Add some spacing between navbar items */
+}
+
+/* Styling for navbar links */
+.nav-link {
+  /* color: #333; Text color */
+  text-decoration: none; /* Remove underline */
+  padding: 10px; /* Padding around each link */
+  border-radius: 5px; /* Rounded corners */
 }

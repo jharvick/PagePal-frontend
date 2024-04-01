@@ -11,8 +11,10 @@ export function ItemsIndex({ items, onShowItem, onDestroyItem }) {
               <img className="card-img-top" src={item.image_url} alt="Card image cap" />
               <div className="card-body">
                 <h3 className="card-title">{item.name}</h3>
-                <p className="card-text">Genre: {item.category}</p>
-                <p className="card-text">Description: {item.description}</p>
+                <ul className="card-text">
+                  <li>Genre: {item.category}</li>
+                  <li>Description: {item.description}</li>
+                </ul>
                 <button type="button" className="btn btn-outline-dark" onClick={() => onDestroyItem(item)}>
                   Mark as read
                 </button>

@@ -126,20 +126,19 @@ export function Content() {
   useEffect(handleIndexItems, []);
   useEffect(handleIndexFavorites, []);
   useEffect(() => {
-    handleIndexDestroyedItems(); // Initialize destroyedItems
+    handleIndexDestroyedItems();
   }, []);
 
   return (
     <div>
       <div className="container">
         <Routes>
-          <Route path="/" element={<h1>Welcome to PagePal!</h1>} />
+          <Route path="/" element={<h1 style={{ fontSize: "5em" }}>Welcome to PagePal!</h1>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/books" element={<BooksIndex books={[]} />} />
           <Route path="/items/new" element={<ItemsNew onCreateItem={handleCreateItem} />} />
           <Route path="/favorites/new" element={<FavoritesNew onCreateFavorite={handleCreateFavorite} />} />
-          {/* <Route path="/items" element={<ItemsIndex items={items} onShowItem={handleShowItem} />} /> */}
           <Route path="/favorites" element={<FavoritesIndex favorites={favorites} />} />
           <Route
             path="/items"

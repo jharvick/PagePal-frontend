@@ -1,7 +1,7 @@
 export function BooksIndex(props) {
   return (
     <div>
-      <h1>What to watch?</h1>
+      <h1>What to read?</h1>
       {props.books.map((book) => (
         <div key={book.imdbID}>
           <h2>{book.Title}</h2>

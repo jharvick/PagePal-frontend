@@ -37,7 +37,7 @@ export function ItemsNew(props) {
           <h1>What to read?</h1>
           <div>
             Search: <input value={searchTerms} onChange={(event) => setSearchTerms(event.target.value)} type="text" />
-            <button onClick={handleIndexBooks}>Submit!</button>
+            <button onClick={handleIndexBooks}>Find a book!</button>
           </div>
           <div>
             {books.map((book) => (
@@ -45,14 +45,14 @@ export function ItemsNew(props) {
                 <h2>{book.volumeInfo?.title}</h2>
                 <img src={book.volumeInfo?.imageLinks?.thumbnail} alt="" width="200" />
                 <p>{book.volumeInfo?.categories ? book.volumeInfo.categories[0] : "Unknown Category"}</p>
-                <p>{book.volumeInfo?.publishedDate}</p> {/* This could be the year of publication */}
+                <p>{book.volumeInfo?.publishedDate}</p>
                 <button onClick={() => handleSelect(book)}>Select</button>
               </div>
             ))}
           </div>
         </div>
         <div className="col">
-          <h1>New watch</h1>
+          <h1>New book</h1>
           <form onSubmit={handleSubmit}>
             <div>
               Name: <input value={name} onChange={(event) => setName(event.target.value)} name="name" type="text" />
@@ -78,7 +78,7 @@ export function ItemsNew(props) {
                 name="description"
               />
             </div>
-            <button type="submit">Add book</button>
+            <button type="submit">Add book!</button>
           </form>
         </div>
       </div>

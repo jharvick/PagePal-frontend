@@ -51,7 +51,10 @@ export function Header() {
                   </li>
                 )}
               </ul>
-              <img src="https://i.pinimg.com/originals/de/9e/b6/de9eb637d1dac9a77a7f3822ed57ce07.gif" width="125px" />
+              <img
+                src="https://media4.giphy.com/media/JmCdu2TQNEUQa4MRDf/giphy.gif?cid=6c09b952f7w2tnq6hjkshzvpvl44qqq5vku4s3ylsyhxnxw9&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
+                width="125px"
+              />
             </div>
           </h1>
         </div>

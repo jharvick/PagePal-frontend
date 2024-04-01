@@ -1,5 +1,7 @@
 # PagePal
 
+#### Video Demo: https://www.loom.com/share/257623afcab449f3aea0e5714aa1ba39?sid=db31b279-e7af-4b78-8d69-fce159cdf973
+
 ## Overview
 
 PagePal is a web application designed for book enthusiasts who want to keep track of their reading list. With the constant release of new books and recommendations from friends, it can be challenging to remember all the books you want to read. PagePal solves this problem by providing a platform where you can easily manage your reading list.
